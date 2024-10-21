@@ -1,0 +1,7 @@
+
+
+Game = CS.Game
+
+Game.LoadObject()
+
+print("Game Loaded")

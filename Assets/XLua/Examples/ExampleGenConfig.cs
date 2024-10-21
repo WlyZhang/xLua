@@ -44,11 +44,11 @@ public static class ExampleGenConfig
                 typeof(SkinnedMeshRenderer),
                 typeof(Renderer),
                 typeof(WWW),
-                typeof(Light),
                 typeof(Mathf),
                 typeof(System.Collections.Generic.List<int>),
                 typeof(Action<string>),
-                typeof(UnityEngine.Debug)
+                typeof(UnityEngine.Debug),
+                typeof(Game)
             };
 
     //C#静态调用Lua的配置（包括事件的原型），仅可以配delegate，interface
@@ -99,8 +99,8 @@ public static class ExampleGenConfig
     
     public static List<Type> BlackGenericTypeList = new List<Type>()
     {
-        typeof(Span<>),
-        typeof(ReadOnlySpan<>),
+        //typeof(Span<>),
+        //typeof(ReadOnlySpan<>),
     };
 
     private static bool IsBlacklistedGenericType(Type type)
@@ -108,7 +108,7 @@ public static class ExampleGenConfig
         if (!type.IsGenericType) return false;
         return BlackGenericTypeList.Contains(type.GetGenericTypeDefinition());
     }
-
+    /*
     [BlackList] public static Func<MemberInfo, bool> GenericTypeFilter = (memberInfo) =>
     {
         switch (memberInfo)
@@ -125,5 +125,5 @@ public static class ExampleGenConfig
             default:
                 return false;
         }
-    };
+    };*/
 }
